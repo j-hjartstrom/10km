@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>10km-träning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #1D9E75;
+    --green-light: #E1F5EE;
+    --green-mid: #9FE1CB;
+    --green-dark: #085041;
+    --amber: #854F0B;
+    --amber-light: #FAEEDA;
+    --text: #1a1a1a;
+    --text-muted: #6b7280;
+    --text-faint: #9ca3af;
+    --bg: #f8f7f4;
+    --surface: #ffffff;
+    --border: rgba(0,0,0,0.08);
+    --border-strong: rgba(0,0,0,0.15);
+    --radius: 14px;
+    --radius-sm: 9px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  .app {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  /* Header */
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+  .logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--green);
+    letter-spacing: -0.3px;
+  }
+  .logo span { color: var(--text-muted); }
+
+  /* Level toggle */
+  .level-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 1.25rem;
+  }
+  .level-btn {
+    padding: 12px 10px;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    background: var(--surface);
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.18s;
+    position: relative;
+    overflow: hidden;
+  }
+  .level-btn.active {
+    border-color: var(--green);
+    background: var(--green-light);
+  }
+  .level-btn.active::before {
+    content: '';
+    position: absolute;
+    top: 0; right: 0;
+    width: 0; height: 0;
+    border-style: solid;
+    border-width: 0 24px 24px 0;
+    border-color: transparent var(--green) transparent transparent;
+  }
+  .level-btn.active::after {
+    content: '✓';
+    position: absolute;
+    top: 1px; right: 3px;
+    font-size: 11px;
+    color: white;
+    font-weight: 600;
+  }
+  .level-name {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .level-btn.active .level-name { color: var(--green-dark); }
+  .level-sub {
+    display: block;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .level-btn.active .level-sub { color: var(--green); }
+
+  /* Progress card */
+  .progress-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 16px;
+    margin-bottom: 1.25rem;
+  }
+  .progress-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 10px;
+  }
+  .progress-label { font-size: 13px; color: var(--text-muted); }
+  .progress-pct {
+    font-family: 'DM Mono', monospace;
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--green);
+  }
+  .progress-bar {
+    height: 6px;
+    background: var(--bg);
+    border-radius: 99px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--green-mid), var(--green));
+    border-radius: 99px;
+    transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 11px;
+    border-radius: 99px;
+  }
+  .badge-xp { background: var(--green-light); color: var(--green-dark); }
+  .badge-streak { background: var(--amber-light); color: var(--amber); }
+
+  /* Week tabs */
+  .week-tabs {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    margin-bottom: 1rem;
+  }
+  .week-tab {
+    padding: 8px 4px 6px;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text-muted);
+    transition: all 0.15s;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .week-tab .wnum { display: block; font-size: 14px; font-weight: 600; color: var(--text); }
+  .week-tab .wcheck { display: block; font-size: 10px; min-height: 14px; color: var(--green); }
+  .week-tab.active {
+    border-color: var(--green);
+    background: var(--green-light);
+    color: var(--green-dark);
+  }
+  .week-tab.active .wnum { color: var(--green-dark); }
+  .week-tab.done { border-color: var(--green-mid); }
+
+  /* Sessions */
+  .sessions { display: flex; flex-direction: column; gap: 10px; }
+
+  .session-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 15px;
+    transition: border-color 0.2s, opacity 0.2s;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  .session-card.completed { border-color: var(--green-mid); }
+  .session-card:active { transform: scale(0.985); }
+
+  .session-row { display: flex; gap: 13px; align-items: flex-start; }
+
+  .checkbox {
+    width: 26px;
+    height: 26px;
+    min-width: 26px;
+    border: 2px solid var(--border-strong);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: transparent;
+    margin-top: 1px;
+  }
+  .checkbox.checked {
+    background: var(--green);
+    border-color: var(--green);
+    transform: scale(1.05);
+  }
+  .check-icon { display: none; color: #fff; font-size: 14px; font-weight: 700; line-height: 1; }
+  .checkbox.checked .check-icon { display: block; }
+
+  .session-body { flex: 1; min-width: 0; }
+  .session-type {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--text-faint);
+    margin-bottom: 4px;
+  }
+  .session-desc {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.5;
+  }
+  .session-card.completed .session-desc {
+    text-decoration: line-through;
+    color: var(--text-faint);
+  }
+  .session-tip {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 5px;
+    font-style: italic;
+  }
+  .xp-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--green);
+    margin-top: 5px;
+  }
+
+  /* Achievements */
+  .ach-section {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+  .ach-heading {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--text-faint);
+    margin-bottom: 10px;
+  }
+  .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .ach {
+    padding: 10px 12px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--border);
+    background: var(--surface);
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ach.unlocked {
+    border-color: var(--green-mid);
+    background: var(--green-light);
+    color: var(--green-dark);
+    font-weight: 500;
+  }
+  .ach-icon { font-size: 16px; min-width: 20px; }
+
+  /* Confetti */
+  .confetti {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    font-size: 20px;
+    animation: fall 1.3s ease-out forwards;
+  }
+  @keyframes fall {
+    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
+    100% { transform: translateY(220px) rotate(400deg) scale(0.5); opacity: 0; }
+  }
+
+  /* Install hint */
+  .install-hint {
+    text-align: center;
+    font-size: 12px;
+    color: var(--text-faint);
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+  }
+</style>
+</head>
+<body>
+<div class="app">
+
+  <div class="header">
+    <div class="logo">10km<span>/träning</span></div>
+  </div>
+
+  <div class="level-toggle">
+    <button class="level-btn active" id="btn-n3" onclick="setLevel('n3')">
+      <span class="level-name">Nivå 3</span>
+      <span class="level-sub">mål: 47 min</span>
+    </button>
+    <button class="level-btn" id="btn-n2" onclick="setLevel('n2')">
+      <span class="level-name">Nivå 2</span>
+      <span class="level-sub">mål: 56 min</span>
+    </button>
+  </div>
+
+  <div class="progress-card">
+    <div class="progress-top">
+      <span class="progress-label" id="prog-label">0 / 30 pass klara</span>
+      <span class="progress-pct" id="prog-pct">0%</span>
+    </div>
+    <div class="progress-bar">
+      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
+    </div>
+    <div class="badges">
+      <span class="badge badge-xp" id="xp-badge">0 XP</span>
+      <span class="badge badge-streak" id="streak-badge">0 veckor streak</span>
+    </div>
+  </div>
+
+  <div class="week-tabs" id="week-tabs"></div>
+  <div class="sessions" id="sessions"></div>
+
+  <div class="ach-section">
+    <div class="ach-heading">Achievements</div>
+    <div class="ach-grid" id="ach-grid"></div>
+  </div>
+
+  <div class="install-hint">Lägg till på hemskärmen för snabb åtkomst</div>
+</div>
+
+<script>
+const DATA = {
+  n3: { weeks: [
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 30 sek aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x4 min i 5 min/km, 2 min vila"},{t:"Långpass",tip:"Så att du kan prata",d:"45 min i 6 min/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 40 sek aktiv / 20 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x2 min i 4:30/km, 30 sek vila — 3 min vila — 6x1 min i 4:20/km, 30 sek vila"},{t:"Långpass",tip:"Så att du kan prata",d:"50 min i 6 min/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 1 min aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x4 min i 4:50/km, 4 min joggvila"},{t:"Långpass",tip:"Så att du kan prata",d:"55 min i 6 min/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 70 sek aktiv / 20 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"3:30 i 4:40 → 3:30 i 4:30 → 3:30 i 4:20 → 3:30 i 4:10 min/km — 1:30 vila"},{t:"Långpass",tip:"Så att du kan prata",d:"60 min i 6 min/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"20x 30 sek aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"25 min i 5 min/km"},{t:"Långpass",tip:"Så att du kan prata",d:"70 min i 6 min/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"6x2 min / 30 sek vila, 3 min vila, 8x1 min / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"5 min i 6:00 → 5:40 → 5:30 → 5:20 → 5:10 → 5:00 → 4:50 min/km"},{t:"Långpass",tip:"Så att du kan prata",d:"30 min i 6/km + 10 min i 5:30 + 30 min i 6/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"4 min, 3:30, 3, 2:30, 2, 1:30, 1 min — 30 sek / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x6 min i 4:50/km, 2 min vila"},{t:"Långpass",tip:"Så att du kan prata",d:"30 min i 5:40 + 10 min i 5:20 + 30 min i 6/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x4 min / 4 min joggvila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x4 min i 4:50/km, 4 min joggvila"},{t:"Långpass",tip:"Så att du kan prata",d:"80 min i 5:40/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x90 sek / 45 sek vila, 3 min vila — totalt 2 ggr"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"40 min i 5:30/km"},{t:"Långpass",tip:"Så att du kan prata",d:"60 min i 5:40/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"10x1 min / 1 min joggvila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4 km lugnt"},{t:"Långpass",tip:"Dags att köra!",d:"🏁 Spring 10 km!"}]}
+  ]},
+  n2: { weeks: [
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 30 sek aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 6:30/km + 5 min i 5:40/km — totalt 2 ggr"},{t:"Långpass",tip:"Så att du kan prata",d:"30 min"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 40 sek aktiv / 20 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 6:15/km + 5 min i 5:35/km — totalt 2 ggr"},{t:"Långpass",tip:"Så att du kan prata",d:"40 min"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 1 min aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 5:50/km + 10 min i 5:30/km"},{t:"Långpass",tip:"Så att du kan prata",d:"45 min"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 70 sek aktiv / 20 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"5 min i 5:45 + 5 min i 5:30 + 5 min i 5:45 min/km"},{t:"Långpass",tip:"Så att du kan prata",d:"50 min"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"20x 30 sek aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"40 min i 6/km"},{t:"Långpass",tip:"Så att du kan prata",d:"55 min"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"4x2 min / 30 sek vila, 3 min vila, 8x1 min / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"35 min i 6/km"},{t:"Långpass",tip:"Så att du kan prata",d:"60 min"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"4 min, 3:30, 3, 2:30, 2, 1:30, 1 min, 30 sek / vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 5:30/km"},{t:"Långpass",tip:"Så att du kan prata",d:"30 min i 7/km + 10 min i 5:30 + 30 min i 7/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x4 min / 4 min joggvila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"20 min i 5:50/km"},{t:"Långpass",tip:"Så att du kan prata",d:"20 min i 7/km + 20 min i 5:30 + 30 min i 7/km"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x90 sek / 45 sek vila, 3 min vila — totalt 2 ggr"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"20 min i 6/km"},{t:"Långpass",tip:"Så att du kan prata",d:"60 min"}]},
+    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"8x1 min / 1 min joggvila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"3 km lugnt"},{t:"Långpass",tip:"Dags att köra!",d:"🏁 Spring 10 km!"}]}
+  ]}
+};
+
+const ACHIEVEMENTS = [
+  {id:"first", icon:"👟", label:"Första passet", check:d=>d.total>=1},
+  {id:"week1", icon:"📅", label:"Vecka 1 klar", check:d=>d.weekDone[0]},
+  {id:"halfway", icon:"⚡", label:"Halvvägs (15 pass)", check:d=>d.total>=15},
+  {id:"week5", icon:"🔥", label:"Vecka 5 klar", check:d=>d.weekDone[4]},
+  {id:"allweeks", icon:"🏆", label:"10 veckor klara", check:d=>d.weekDone.filter(Boolean).length===10},
+  {id:"done", icon:"🥇", label:"10km-löpare!", check:d=>d.total>=30}
+];
+
+let level = 'n3';
+let currentWeek = 0;
+let state = {};
+try { const s = localStorage.getItem('10km_v3'); if (s) state = JSON.parse(s); } catch(e) {}
+function save() { try { localStorage.setItem('10km_v3', JSON.stringify(state)); } catch(e) {} }
+function key(l,w,s) { return `${l}_w${w}_s${s}`; }
+
+function getDerived() {
+  let total=0, streak=0, weekDone=[];
+  for (let w=0; w<10; w++) {
+    let wd = true;
+    for (let s=0; s<3; s++) { if (state[key(level,w,s)]) total++; else wd=false; }
+    weekDone.push(wd);
+    if (wd) streak++; else streak=0;
+  }
+  return { total, streak, weekDone };
+}
+
+function setLevel(l) {
+  level = l;
+  document.getElementById('btn-n3').classList.toggle('active', l==='n3');
+  document.getElementById('btn-n2').classList.toggle('active', l==='n2');
+  render();
+}
+
+function render() {
+  const dd = getDerived();
+  const pct = Math.round(dd.total / 30 * 100);
+  document.getElementById('prog-label').textContent = `${dd.total} / 30 pass klara`;
+  document.getElementById('prog-pct').textContent = `${pct}%`;
+  document.getElementById('prog-fill').style.width = pct + '%';
+  document.getElementById('xp-badge').textContent = `${dd.total * 50} XP`;
+  document.getElementById('streak-badge').textContent = `${dd.streak} veckor streak`;
+
+  // Week tabs
+  const tabsEl = document.getElementById('week-tabs');
+  tabsEl.innerHTML = '';
+  for (let w=0; w<10; w++) {
+    const btn = document.createElement('button');
+    btn.className = 'week-tab' + (w===currentWeek?' active':'') + (dd.weekDone[w]?' done':'');
+    btn.innerHTML = `<span class="wnum">V${w+1}</span><span class="wcheck">${dd.weekDone[w]?'✓':''}</span>`;
+    btn.onclick = (()=>{ const ww=w; return ()=>{ currentWeek=ww; render(); }; })();
+    tabsEl.appendChild(btn);
+  }
+
+  // Sessions
+  const listEl = document.getElementById('sessions');
+  listEl.innerHTML = '';
+  DATA[level].weeks[currentWeek].s.forEach((s,i) => {
+    const k = key(level, currentWeek, i);
+    const done = !!state[k];
+    const card = document.createElement('div');
+    card.className = 'session-card' + (done?' completed':'');
+    card.innerHTML = `
+      <div class="session-row">
+        <div class="checkbox ${done?'checked':''}"><span class="check-icon">✓</span></div>
+        <div class="session-body">
+          <div class="session-type">${s.t}</div>
+          <div class="session-desc">${s.d}</div>
+          <div class="session-tip">${s.tip}</div>
+          ${done ? '<span class="xp-tag">+50 XP</span>' : ''}
+        </div>
+      </div>`;
+    card.onclick = (ev) => toggle(k, ev);
+    listEl.appendChild(card);
+  });
+
+  // Achievements
+  const achEl = document.getElementById('ach-grid');
+  achEl.innerHTML = '';
+  ACHIEVEMENTS.forEach(a => {
+    const unlocked = a.check(dd);
+    const el = document.createElement('div');
+    el.className = 'ach' + (unlocked?' unlocked':'');
+    el.innerHTML = `<span class="ach-icon">${unlocked ? a.icon : '○'}</span>${a.label}`;
+    achEl.appendChild(el);
+  });
+}
+
+function toggle(k, ev) {
+  const wasDone = !!state[k];
+  state[k] = !wasDone;
+  save();
+  if (!wasDone) spawnConfetti(ev.clientX, ev.clientY);
+  render();
+}
+
+function spawnConfetti(x, y) {
+  ['🎉','⭐','🏃','💚','🔥','✨'].forEach((e,i) => {
+    const el = document.createElement('div');
+    el.className = 'confetti';
+    el.textContent = e;
+    el.style.left = (x + (Math.random()-.5)*100) + 'px';
+    el.style.top = y + 'px';
+    el.style.animationDelay = (i * 0.07) + 's';
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 1500);
+  });
+}
+
+render();
+</script>
+</body>
+</html>
