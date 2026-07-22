@@ -4,339 +4,144 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" sizes="192x192" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,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">
+<meta name="theme-color" content="#1D9E75">
 <title>10km-träning</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --green: #1D9E75;
-    --green-light: #E1F5EE;
-    --green-mid: #9FE1CB;
-    --green-dark: #085041;
-    --amber: #854F0B;
-    --amber-light: #FAEEDA;
-    --text: #1a1a1a;
-    --text-muted: #6b7280;
-    --text-faint: #9ca3af;
-    --bg: #f8f7f4;
-    --surface: #ffffff;
-    --border: rgba(0,0,0,0.08);
-    --border-strong: rgba(0,0,0,0.15);
-    --radius: 14px;
-    --radius-sm: 9px;
+    --green:#1D9E75;--green-light:#E1F5EE;--green-mid:#9FE1CB;--green-dark:#085041;
+    --amber:#854F0B;--amber-light:#FAEEDA;
+    --text:#1a1a1a;--text-muted:#6b7280;--text-faint:#9ca3af;
+    --bg:#f8f7f4;--surface:#ffffff;--border:rgba(0,0,0,0.08);--border-strong:rgba(0,0,0,0.15);
+    --radius:14px;--radius-sm:9px;
   }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;min-height:-webkit-fill-available;padding-bottom:env(safe-area-inset-bottom)}
+  .app{max-width:480px;margin:0 auto;padding:1.25rem 1rem 2rem}
 
-  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+  .header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.25rem}
+  .logo{font-family:'DM Mono',monospace;font-size:15px;font-weight:500;color:var(--green);letter-spacing:-.3px}
+  .logo span{color:var(--text-muted)}
 
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    min-height: 100vh;
-    min-height: -webkit-fill-available;
-    padding-bottom: env(safe-area-inset-bottom);
-  }
+  .level-toggle{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:1.25rem}
+  .level-btn{padding:12px 10px;border-radius:var(--radius);border:1.5px solid var(--border);background:var(--surface);cursor:pointer;text-align:left;transition:all .18s;position:relative;overflow:hidden}
+  .level-btn.active{border-color:var(--green);background:var(--green-light)}
+  .level-btn.active::before{content:'';position:absolute;top:0;right:0;width:0;height:0;border-style:solid;border-width:0 24px 24px 0;border-color:transparent var(--green) transparent transparent}
+  .level-btn.active::after{content:'✓';position:absolute;top:1px;right:3px;font-size:11px;color:white;font-weight:600}
+  .level-name{display:block;font-size:15px;font-weight:600;color:var(--text);margin-bottom:2px}
+  .level-btn.active .level-name{color:var(--green-dark)}
+  .level-sub{display:block;font-family:'DM Mono',monospace;font-size:11px;color:var(--text-muted)}
+  .level-btn.active .level-sub{color:var(--green)}
 
-  .app {
-    max-width: 480px;
-    margin: 0 auto;
-    padding: 1.25rem 1rem 2rem;
-  }
+  .progress-card{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:16px;margin-bottom:1.25rem}
+  .progress-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+  .progress-label{font-size:13px;color:var(--text-muted)}
+  .progress-pct{font-family:'DM Mono',monospace;font-size:22px;font-weight:500;color:var(--green)}
+  .progress-bar{height:6px;background:var(--bg);border-radius:99px;overflow:hidden;margin-bottom:12px}
+  .progress-fill{height:100%;background:linear-gradient(90deg,var(--green-mid),var(--green));border-radius:99px;transition:width .5s cubic-bezier(.34,1.56,.64,1)}
+  .badges{display:flex;gap:8px;flex-wrap:wrap}
+  .badge{font-size:12px;font-weight:500;padding:4px 11px;border-radius:99px}
+  .badge-xp{background:var(--green-light);color:var(--green-dark)}
+  .badge-streak{background:var(--amber-light);color:var(--amber)}
 
-  /* Header */
-  .header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1.25rem;
-  }
-  .logo {
-    font-family: 'DM Mono', monospace;
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--green);
-    letter-spacing: -0.3px;
-  }
-  .logo span { color: var(--text-muted); }
+  .week-tabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:1rem}
+  .week-tab{padding:8px 4px 6px;font-size:12px;font-weight:500;cursor:pointer;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--text-muted);transition:all .15s;text-align:center;line-height:1.2}
+  .week-tab .wnum{display:block;font-size:14px;font-weight:600;color:var(--text)}
+  .week-tab .wcheck{display:block;font-size:10px;min-height:14px;color:var(--green)}
+  .week-tab.active{border-color:var(--green);background:var(--green-light);color:var(--green-dark)}
+  .week-tab.active .wnum{color:var(--green-dark)}
+  .week-tab.done{border-color:var(--green-mid)}
 
-  /* Level toggle */
-  .level-toggle {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 8px;
-    margin-bottom: 1.25rem;
-  }
-  .level-btn {
-    padding: 12px 10px;
-    border-radius: var(--radius);
-    border: 1.5px solid var(--border);
-    background: var(--surface);
-    cursor: pointer;
-    text-align: left;
-    transition: all 0.18s;
-    position: relative;
-    overflow: hidden;
-  }
-  .level-btn.active {
-    border-color: var(--green);
-    background: var(--green-light);
-  }
-  .level-btn.active::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0;
-    width: 0; height: 0;
-    border-style: solid;
-    border-width: 0 24px 24px 0;
-    border-color: transparent var(--green) transparent transparent;
-  }
-  .level-btn.active::after {
-    content: '✓';
-    position: absolute;
-    top: 1px; right: 3px;
-    font-size: 11px;
-    color: white;
-    font-weight: 600;
-  }
-  .level-name {
-    display: block;
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 2px;
-  }
-  .level-btn.active .level-name { color: var(--green-dark); }
-  .level-sub {
-    display: block;
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--text-muted);
-  }
-  .level-btn.active .level-sub { color: var(--green); }
+  .sessions{display:flex;flex-direction:column;gap:10px}
+  .session-card{background:var(--surface);border-radius:var(--radius);border:1px solid var(--border);padding:15px;transition:border-color .2s;user-select:none;-webkit-user-select:none}
+  .session-card.completed{border-color:var(--green-mid)}
+  .session-row{display:flex;gap:13px;align-items:flex-start}
+  .checkbox{width:26px;height:26px;min-width:26px;border:2px solid var(--border-strong);border-radius:8px;display:flex;align-items:center;justify-content:center;transition:all .18s cubic-bezier(.34,1.56,.64,1);background:transparent;margin-top:1px;cursor:pointer}
+  .checkbox.checked{background:var(--green);border-color:var(--green);transform:scale(1.05)}
+  .check-icon{display:none;color:#fff;font-size:14px;font-weight:700;line-height:1}
+  .checkbox.checked .check-icon{display:block}
+  .session-body{flex:1;min-width:0}
+  .session-type{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:var(--text-faint);margin-bottom:4px}
+  .session-desc{font-size:15px;color:var(--text);line-height:1.5}
+  .session-card.completed .session-desc{text-decoration:line-through;color:var(--text-faint)}
+  .session-tip{font-size:12px;color:var(--text-muted);margin-top:5px;font-style:italic}
+  .xp-tag{display:inline-block;font-size:11px;font-weight:600;color:var(--green);margin-top:5px}
+  .start-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:7px 14px;border-radius:99px;background:var(--green);color:white;font-size:13px;font-weight:600;border:none;cursor:pointer;transition:opacity .15s}
+  .start-btn:active{opacity:.8}
+  .start-btn svg{width:13px;height:13px;fill:white}
 
-  /* Progress card */
-  .progress-card {
-    background: var(--surface);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    padding: 16px;
-    margin-bottom: 1.25rem;
-  }
-  .progress-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    margin-bottom: 10px;
-  }
-  .progress-label { font-size: 13px; color: var(--text-muted); }
-  .progress-pct {
-    font-family: 'DM Mono', monospace;
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--green);
-  }
-  .progress-bar {
-    height: 6px;
-    background: var(--bg);
-    border-radius: 99px;
-    overflow: hidden;
-    margin-bottom: 12px;
-  }
-  .progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, var(--green-mid), var(--green));
-    border-radius: 99px;
-    transition: width 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-  .badges {
-    display: flex;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  .badge {
-    font-size: 12px;
-    font-weight: 500;
-    padding: 4px 11px;
-    border-radius: 99px;
-  }
-  .badge-xp { background: var(--green-light); color: var(--green-dark); }
-  .badge-streak { background: var(--amber-light); color: var(--amber); }
+  .ach-section{margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+  .ach-heading{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.7px;color:var(--text-faint);margin-bottom:10px}
+  .ach-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .ach{padding:10px 12px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);font-size:13px;color:var(--text-muted);display:flex;align-items:center;gap:8px}
+  .ach.unlocked{border-color:var(--green-mid);background:var(--green-light);color:var(--green-dark);font-weight:500}
+  .ach-icon{font-size:16px;min-width:20px}
+  .install-hint{text-align:center;font-size:12px;color:var(--text-faint);margin-top:2rem;padding-bottom:1rem}
 
-  /* Week tabs */
-  .week-tabs {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 6px;
-    margin-bottom: 1rem;
-  }
-  .week-tab {
-    padding: 8px 4px 6px;
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    border: 1px solid var(--border);
-    border-radius: var(--radius-sm);
-    background: var(--surface);
-    color: var(--text-muted);
-    transition: all 0.15s;
-    text-align: center;
-    line-height: 1.2;
-  }
-  .week-tab .wnum { display: block; font-size: 14px; font-weight: 600; color: var(--text); }
-  .week-tab .wcheck { display: block; font-size: 10px; min-height: 14px; color: var(--green); }
-  .week-tab.active {
-    border-color: var(--green);
-    background: var(--green-light);
-    color: var(--green-dark);
-  }
-  .week-tab.active .wnum { color: var(--green-dark); }
-  .week-tab.done { border-color: var(--green-mid); }
+  .confetti{position:fixed;pointer-events:none;z-index:9999;font-size:20px;animation:fall 1.3s ease-out forwards}
+  @keyframes fall{0%{transform:translateY(0) rotate(0deg) scale(1);opacity:1}100%{transform:translateY(220px) rotate(400deg) scale(.5);opacity:0}}
 
-  /* Sessions */
-  .sessions { display: flex; flex-direction: column; gap: 10px; }
+  /* ── MODAL ── */
+  .modal-overlay{display:none;position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);align-items:flex-end;justify-content:center}
+  .modal-overlay.open{display:flex}
+  .modal{width:100%;max-width:480px;background:var(--surface);border-radius:24px 24px 0 0;padding:0 0 env(safe-area-inset-bottom);animation:slideUp .3s cubic-bezier(.34,1.56,.64,1)}
+  @keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+  .modal-handle{width:40px;height:4px;background:var(--border-strong);border-radius:99px;margin:14px auto 0}
+  .modal-header{padding:16px 20px 0;display:flex;align-items:center;justify-content:space-between}
+  .modal-title{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--text-faint)}
+  .modal-close{width:30px;height:30px;border-radius:99px;background:var(--bg);border:none;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;color:var(--text-muted)}
 
-  .session-card {
-    background: var(--surface);
-    border-radius: var(--radius);
-    border: 1px solid var(--border);
-    padding: 15px;
-    transition: border-color 0.2s, opacity 0.2s;
-    cursor: pointer;
-    user-select: none;
-    -webkit-user-select: none;
-  }
-  .session-card.completed { border-color: var(--green-mid); }
-  .session-card:active { transform: scale(0.985); }
+  /* Countdown overlay */
+  .countdown-overlay{position:absolute;inset:0;border-radius:24px 24px 0 0;background:var(--green);display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;pointer-events:none;transition:opacity .2s}
+  .countdown-overlay.visible{opacity:1;pointer-events:all}
+  .countdown-num{font-family:'DM Mono',monospace;font-size:100px;font-weight:500;color:white;line-height:1;animation:popIn .35s cubic-bezier(.34,1.56,.64,1)}
+  .countdown-go{font-size:42px;font-weight:600;color:white;animation:popIn .35s cubic-bezier(.34,1.56,.64,1)}
+  @keyframes popIn{0%{transform:scale(.4);opacity:0}100%{transform:scale(1);opacity:1}}
 
-  .session-row { display: flex; gap: 13px; align-items: flex-start; }
+  .timer-face{padding:24px 20px 16px;text-align:center;min-height:200px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+  .timer-phase{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;padding:4px 16px;border-radius:99px;margin-bottom:14px;transition:background .3s,color .3s}
+  .timer-phase.work{background:#DCFCE7;color:#166534}
+  .timer-phase.rest{background:#FEF3C7;color:#92400E}
+  .timer-phase.warmup{background:#DBEAFE;color:#1E40AF}
+  .timer-phase.cooldown{background:#F3E8FF;color:#6B21A8}
+  .timer-phase.done-phase{background:var(--green-light);color:var(--green-dark)}
+  .timer-clock{font-family:'DM Mono',monospace;font-size:72px;font-weight:500;color:var(--text);line-height:1;margin-bottom:8px;letter-spacing:-3px}
+  .timer-desc{font-size:17px;font-weight:500;color:var(--text-muted);margin-bottom:6px;line-height:1.3}
+  .timer-progress-text{font-size:13px;color:var(--text-faint);font-family:'DM Mono',monospace}
 
-  .checkbox {
-    width: 26px;
-    height: 26px;
-    min-width: 26px;
-    border: 2px solid var(--border-strong);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
-    background: transparent;
-    margin-top: 1px;
-  }
-  .checkbox.checked {
-    background: var(--green);
-    border-color: var(--green);
-    transform: scale(1.05);
-  }
-  .check-icon { display: none; color: #fff; font-size: 14px; font-weight: 700; line-height: 1; }
-  .checkbox.checked .check-icon { display: block; }
+  .timer-bar-wrap{padding:0 20px;margin-bottom:20px}
+  .timer-bar{height:5px;background:var(--bg);border-radius:99px;overflow:hidden}
+  .timer-bar-fill{height:100%;border-radius:99px;transition:width .9s linear,background .3s}
+  .timer-bar-fill.work{background:#22C55E}
+  .timer-bar-fill.rest{background:#F59E0B}
+  .timer-bar-fill.warmup{background:#3B82F6}
+  .timer-bar-fill.cooldown{background:#A855F7}
+  .timer-bar-fill.done-phase{background:var(--green)}
 
-  .session-body { flex: 1; min-width: 0; }
-  .session-type {
-    font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-    color: var(--text-faint);
-    margin-bottom: 4px;
-  }
-  .session-desc {
-    font-size: 15px;
-    color: var(--text);
-    line-height: 1.5;
-  }
-  .session-card.completed .session-desc {
-    text-decoration: line-through;
-    color: var(--text-faint);
-  }
-  .session-tip {
-    font-size: 12px;
-    color: var(--text-muted);
-    margin-top: 5px;
-    font-style: italic;
-  }
-  .xp-tag {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--green);
-    margin-top: 5px;
-  }
-
-  /* Achievements */
-  .ach-section {
-    margin-top: 1.5rem;
-    padding-top: 1.25rem;
-    border-top: 1px solid var(--border);
-  }
-  .ach-heading {
-    font-size: 11px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.7px;
-    color: var(--text-faint);
-    margin-bottom: 10px;
-  }
-  .ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
-  .ach {
-    padding: 10px 12px;
-    border-radius: var(--radius-sm);
-    border: 1px solid var(--border);
-    background: var(--surface);
-    font-size: 13px;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .ach.unlocked {
-    border-color: var(--green-mid);
-    background: var(--green-light);
-    color: var(--green-dark);
-    font-weight: 500;
-  }
-  .ach-icon { font-size: 16px; min-width: 20px; }
-
-  /* Confetti */
-  .confetti {
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    font-size: 20px;
-    animation: fall 1.3s ease-out forwards;
-  }
-  @keyframes fall {
-    0% { transform: translateY(0) rotate(0deg) scale(1); opacity: 1; }
-    100% { transform: translateY(220px) rotate(400deg) scale(0.5); opacity: 0; }
-  }
-
-  /* Install hint */
-  .install-hint {
-    text-align: center;
-    font-size: 12px;
-    color: var(--text-faint);
-    margin-top: 2rem;
-    padding-bottom: 1rem;
-  }
+  .timer-controls{display:flex;gap:12px;padding:0 20px 24px}
+  .ctrl-btn{flex:1;padding:14px;border-radius:var(--radius);border:none;cursor:pointer;font-size:15px;font-weight:600;transition:opacity .15s;font-family:'DM Sans',sans-serif}
+  .ctrl-btn:active{opacity:.75}
+  .ctrl-btn.primary{background:var(--green);color:white}
+  .ctrl-btn.secondary{background:var(--bg);color:var(--text-muted)}
+  .ctrl-btn.skip{background:var(--bg);color:var(--text-faint);flex:0 0 auto;padding:14px 16px;font-size:13px}
 </style>
 </head>
 <body>
 <div class="app">
-
-  <div class="header">
-    <div class="logo">10km<span>/träning</span></div>
-  </div>
+  <div class="header"><div class="logo">10km<span>/träning</span></div></div>
 
   <div class="level-toggle">
     <button class="level-btn active" id="btn-n3" onclick="setLevel('n3')">
-      <span class="level-name">Nivå 3</span>
-      <span class="level-sub">mål: 47 min</span>
+      <span class="level-name">Nivå 3</span><span class="level-sub">mål: 47 min</span>
     </button>
     <button class="level-btn" id="btn-n2" onclick="setLevel('n2')">
-      <span class="level-name">Nivå 2</span>
-      <span class="level-sub">mål: 56 min</span>
+      <span class="level-name">Nivå 2</span><span class="level-sub">mål: 56 min</span>
     </button>
   </div>
 
@@ -345,9 +150,7 @@
       <span class="progress-label" id="prog-label">0 / 30 pass klara</span>
       <span class="progress-pct" id="prog-pct">0%</span>
     </div>
-    <div class="progress-bar">
-      <div class="progress-fill" id="prog-fill" style="width:0%"></div>
-    </div>
+    <div class="progress-bar"><div class="progress-fill" id="prog-fill" style="width:0%"></div></div>
     <div class="badges">
       <span class="badge badge-xp" id="xp-badge">0 XP</span>
       <span class="badge badge-streak" id="streak-badge">0 veckor streak</span>
@@ -361,146 +164,555 @@
     <div class="ach-heading">Achievements</div>
     <div class="ach-grid" id="ach-grid"></div>
   </div>
-
   <div class="install-hint">Lägg till på hemskärmen för snabb åtkomst</div>
 </div>
 
+<!-- TIMER MODAL -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal" style="position:relative">
+    <!-- Countdown overlay -->
+    <div class="countdown-overlay" id="countdown-overlay">
+      <div class="countdown-num" id="countdown-num">3</div>
+    </div>
+
+    <div class="modal-handle"></div>
+    <div class="modal-header">
+      <span class="modal-title" id="modal-pass-label">Pass</span>
+      <button class="modal-close" onclick="closeTimer()">✕</button>
+    </div>
+    <div class="timer-face">
+      <div class="timer-phase work" id="timer-phase">Laddar...</div>
+      <div class="timer-clock" id="timer-clock">0:00</div>
+      <div class="timer-desc" id="timer-desc">—</div>
+      <div class="timer-progress-text" id="timer-progress-text"></div>
+    </div>
+    <div class="timer-bar-wrap">
+      <div class="timer-bar"><div class="timer-bar-fill work" id="timer-bar-fill" style="width:100%"></div></div>
+    </div>
+    <div class="timer-controls">
+      <button class="ctrl-btn secondary" id="ctrl-pause" onclick="togglePause()">Pausa</button>
+      <button class="ctrl-btn primary" id="ctrl-main" onclick="timerNext()">Nästa</button>
+      <button class="ctrl-btn skip" id="ctrl-skip" onclick="timerSkip()">Hoppa över</button>
+    </div>
+  </div>
+</div>
+
 <script>
+// ── HELPERS ───────────────────────────────────────────────────────────────────
+function buildIntervals(reps, workSecs, restSecs, workLabel, restLabel) {
+  const steps = [];
+  for (let i = 0; i < reps; i++) {
+    steps.push({label:workLabel, phase:'work', secs:workSecs, desc:`Intervall ${i+1} av ${reps}`});
+    if (i < reps-1)
+      steps.push({label:restLabel, phase:'rest', secs:restSecs, desc:`Vila — intervall ${i+2} härnäst`});
+  }
+  return steps;
+}
+
+// Wrap any step-list with warmup + cooldown
+function withWarmCool(steps, warmSecs=300, coolSecs=300) {
+  return [
+    {label:'Uppvärmning', phase:'warmup', secs:warmSecs, desc:'Lätt jogg för att värma upp'},
+    ...steps,
+    {label:'Nedvarvning', phase:'cooldown', secs:coolSecs, desc:'Lugn jogg för att varva ner'}
+  ];
+}
+
+// ── DATA ──────────────────────────────────────────────────────────────────────
 const DATA = {
   n3: { weeks: [
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 30 sek aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x4 min i 5 min/km, 2 min vila"},{t:"Långpass",tip:"Så att du kan prata",d:"45 min i 6 min/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 40 sek aktiv / 20 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x2 min i 4:30/km, 30 sek vila — 3 min vila — 6x1 min i 4:20/km, 30 sek vila"},{t:"Långpass",tip:"Så att du kan prata",d:"50 min i 6 min/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 1 min aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x4 min i 4:50/km, 4 min joggvila"},{t:"Långpass",tip:"Så att du kan prata",d:"55 min i 6 min/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 70 sek aktiv / 20 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"3:30 i 4:40 → 3:30 i 4:30 → 3:30 i 4:20 → 3:30 i 4:10 min/km — 1:30 vila"},{t:"Långpass",tip:"Så att du kan prata",d:"60 min i 6 min/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"20x 30 sek aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"25 min i 5 min/km"},{t:"Långpass",tip:"Så att du kan prata",d:"70 min i 6 min/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"6x2 min / 30 sek vila, 3 min vila, 8x1 min / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"5 min i 6:00 → 5:40 → 5:30 → 5:20 → 5:10 → 5:00 → 4:50 min/km"},{t:"Långpass",tip:"Så att du kan prata",d:"30 min i 6/km + 10 min i 5:30 + 30 min i 6/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"4 min, 3:30, 3, 2:30, 2, 1:30, 1 min — 30 sek / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x6 min i 4:50/km, 2 min vila"},{t:"Långpass",tip:"Så att du kan prata",d:"30 min i 5:40 + 10 min i 5:20 + 30 min i 6/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x4 min / 4 min joggvila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x4 min i 4:50/km, 4 min joggvila"},{t:"Långpass",tip:"Så att du kan prata",d:"80 min i 5:40/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x90 sek / 45 sek vila, 3 min vila — totalt 2 ggr"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"40 min i 5:30/km"},{t:"Långpass",tip:"Så att du kan prata",d:"60 min i 5:40/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"10x1 min / 1 min joggvila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4 km lugnt"},{t:"Långpass",tip:"Dags att köra!",d:"🏁 Spring 10 km!"}]}
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 30 sek aktiv / 30 sek vila",
+       timer:withWarmCool(buildIntervals(15,30,30,'Kör!','Vila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x4 min i 5 min/km, 2 min vila",
+       timer:withWarmCool(buildIntervals(4,240,120,'5 min/km','Vila'))},
+      {t:"Långpass",tip:"Så att du kan prata",d:"45 min i 6 min/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 40 sek aktiv / 20 sek vila",
+       timer:withWarmCool(buildIntervals(15,40,20,'Kör!','Vila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x2 min i 4:30/km, 30 sek vila — 3 min vila — 6x1 min i 4:20/km, 30 sek vila",
+       timer:withWarmCool([
+         ...buildIntervals(4,120,30,'4:30/km','Vila'),
+         {label:'Vila',phase:'rest',secs:180,desc:'3 min vila'},
+         ...buildIntervals(6,60,30,'4:20/km','Vila')
+       ])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"50 min i 6 min/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 1 min aktiv / 30 sek vila",
+       timer:withWarmCool(buildIntervals(15,60,30,'Kör!','Vila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x4 min i 4:50/km, 4 min joggvila",
+       timer:withWarmCool(buildIntervals(4,240,240,'4:50/km','Joggvila'))},
+      {t:"Långpass",tip:"Så att du kan prata",d:"55 min i 6 min/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"15x 70 sek aktiv / 20 sek vila",
+       timer:withWarmCool(buildIntervals(15,70,20,'Kör!','Vila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"3:30 i 4:40 → 3:30 i 4:30 → 3:30 i 4:20 → 3:30 i 4:10 min/km",
+       timer:withWarmCool([
+         {label:'Kör',phase:'work',secs:210,desc:'3:30 i 4:40/km'},
+         {label:'Vila',phase:'rest',secs:90,desc:'1:30 vila'},
+         {label:'Kör',phase:'work',secs:210,desc:'3:30 i 4:30/km'},
+         {label:'Vila',phase:'rest',secs:90,desc:'1:30 vila'},
+         {label:'Kör',phase:'work',secs:210,desc:'3:30 i 4:20/km'},
+         {label:'Vila',phase:'rest',secs:90,desc:'1:30 vila'},
+         {label:'Kör',phase:'work',secs:210,desc:'3:30 i 4:10/km'},
+       ])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"60 min i 6 min/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"20x 30 sek aktiv / 30 sek vila",
+       timer:withWarmCool(buildIntervals(20,30,30,'Kör!','Vila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"25 min i 5 min/km",
+       timer:withWarmCool([{label:'Kör',phase:'work',secs:1500,desc:'25 min i 5 min/km'}])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"70 min i 6 min/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"6x2 min / 30 sek vila, 3 min vila, 8x1 min / 30 sek vila",
+       timer:withWarmCool([
+         ...buildIntervals(6,120,30,'Kör!','Vila'),
+         {label:'Vila',phase:'rest',secs:180,desc:'3 min vila'},
+         ...buildIntervals(8,60,30,'Kör!','Vila')
+       ],180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"5 min i 6:00 → 5:40 → 5:30 → 5:20 → 5:10 → 5:00 → 4:50 min/km",
+       timer:withWarmCool([
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 6:00/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:40/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:30/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:20/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:10/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:00/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 4:50/km'},
+       ])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"30 min i 6/km + 10 min i 5:30 + 30 min i 6/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"4 min, 3:30, 3, 2:30, 2, 1:30, 1 min — 30 sek / 30 sek vila",
+       timer:withWarmCool([
+         {label:'Kör',phase:'work',secs:240,desc:'4 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek vila'},
+         {label:'Kör',phase:'work',secs:210,desc:'3:30 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek vila'},
+         {label:'Kör',phase:'work',secs:180,desc:'3 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek vila'},
+         {label:'Kör',phase:'work',secs:150,desc:'2:30 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek vila'},
+         {label:'Kör',phase:'work',secs:120,desc:'2 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek vila'},
+         {label:'Kör',phase:'work',secs:90,desc:'1:30 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek vila'},
+         {label:'Kör',phase:'work',secs:60,desc:'1 min'},
+       ],180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x6 min i 4:50/km, 2 min vila",
+       timer:withWarmCool(buildIntervals(4,360,120,'4:50/km','Vila'))},
+      {t:"Långpass",tip:"Så att du kan prata",d:"30 min i 5:40 + 10 min i 5:20 + 30 min i 6/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x4 min / 4 min joggvila",
+       timer:withWarmCool(buildIntervals(5,240,240,'Kör!','Joggvila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4x4 min i 4:50/km, 4 min joggvila",
+       timer:withWarmCool(buildIntervals(4,240,240,'4:50/km','Joggvila'))},
+      {t:"Långpass",tip:"Så att du kan prata",d:"80 min i 5:40/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x90 sek / 45 sek vila, 3 min vila — totalt 2 ggr",
+       timer:withWarmCool([
+         ...buildIntervals(5,90,45,'Kör!','Vila'),
+         {label:'Vila',phase:'rest',secs:180,desc:'3 min vila'},
+         ...buildIntervals(5,90,45,'Kör!','Vila'),
+       ],180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"40 min i 5:30/km",
+       timer:withWarmCool([{label:'Kör',phase:'work',secs:2400,desc:'40 min i 5:30/km'}])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"60 min i 5:40/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"10x1 min / 1 min joggvila",
+       timer:withWarmCool(buildIntervals(10,60,60,'Kör!','Joggvila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"4 km lugnt",
+       timer:withWarmCool([{label:'Kör',phase:'work',secs:1440,desc:'4 km lugnt tempo'}])},
+      {t:"Långpass",tip:"Dags att köra!",d:"🏁 Spring 10 km!",timer:null}
+    ]}
   ]},
   n2: { weeks: [
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 30 sek aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 6:30/km + 5 min i 5:40/km — totalt 2 ggr"},{t:"Långpass",tip:"Så att du kan prata",d:"30 min"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 40 sek aktiv / 20 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 6:15/km + 5 min i 5:35/km — totalt 2 ggr"},{t:"Långpass",tip:"Så att du kan prata",d:"40 min"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 1 min aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 5:50/km + 10 min i 5:30/km"},{t:"Långpass",tip:"Så att du kan prata",d:"45 min"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 70 sek aktiv / 20 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"5 min i 5:45 + 5 min i 5:30 + 5 min i 5:45 min/km"},{t:"Långpass",tip:"Så att du kan prata",d:"50 min"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"20x 30 sek aktiv / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"40 min i 6/km"},{t:"Långpass",tip:"Så att du kan prata",d:"55 min"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"4x2 min / 30 sek vila, 3 min vila, 8x1 min / 30 sek vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"35 min i 6/km"},{t:"Långpass",tip:"Så att du kan prata",d:"60 min"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"4 min, 3:30, 3, 2:30, 2, 1:30, 1 min, 30 sek / vila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 5:30/km"},{t:"Långpass",tip:"Så att du kan prata",d:"30 min i 7/km + 10 min i 5:30 + 30 min i 7/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x4 min / 4 min joggvila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"20 min i 5:50/km"},{t:"Långpass",tip:"Så att du kan prata",d:"20 min i 7/km + 20 min i 5:30 + 30 min i 7/km"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x90 sek / 45 sek vila, 3 min vila — totalt 2 ggr"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"20 min i 6/km"},{t:"Långpass",tip:"Så att du kan prata",d:"60 min"}]},
-    {s:[{t:"Kort intervall",tip:"Vila, stå eller gå",d:"8x1 min / 1 min joggvila"},{t:"Lång intervall",tip:"Jämn fart i varje moment",d:"3 km lugnt"},{t:"Långpass",tip:"Dags att köra!",d:"🏁 Spring 10 km!"}]}
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 30 sek aktiv / 30 sek vila",
+       timer:withWarmCool(buildIntervals(12,30,30,'Kör!','Vila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 6:30/km + 5 min i 5:40/km — totalt 2 ggr",
+       timer:withWarmCool([
+         {label:'Kör',phase:'work',secs:600,desc:'10 min i 6:30/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:40/km'},
+         {label:'Vila',phase:'rest',secs:120,desc:'2 min vila'},
+         {label:'Kör',phase:'work',secs:600,desc:'10 min i 6:30/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:40/km'},
+       ])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"30 min",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 40 sek aktiv / 20 sek vila",
+       timer:withWarmCool(buildIntervals(12,40,20,'Kör!','Vila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 6:15/km + 5 min i 5:35/km — totalt 2 ggr",
+       timer:withWarmCool([
+         {label:'Kör',phase:'work',secs:600,desc:'10 min i 6:15/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:35/km'},
+         {label:'Vila',phase:'rest',secs:120,desc:'2 min vila'},
+         {label:'Kör',phase:'work',secs:600,desc:'10 min i 6:15/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:35/km'},
+       ])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"40 min",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 1 min aktiv / 30 sek vila",
+       timer:withWarmCool(buildIntervals(12,60,30,'Kör!','Vila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 5:50/km + 10 min i 5:30/km",
+       timer:withWarmCool([
+         {label:'Kör',phase:'work',secs:600,desc:'10 min i 5:50/km'},
+         {label:'Kör',phase:'work',secs:600,desc:'10 min i 5:30/km'},
+       ])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"45 min",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"12x 70 sek aktiv / 20 sek vila",
+       timer:withWarmCool(buildIntervals(12,70,20,'Kör!','Vila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"5 min i 5:45 + 5 min i 5:30 + 5 min i 5:45 min/km",
+       timer:withWarmCool([
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:45/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:30/km'},
+         {label:'Kör',phase:'work',secs:300,desc:'5 min i 5:45/km'},
+       ])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"50 min",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"20x 30 sek aktiv / 30 sek vila",
+       timer:withWarmCool(buildIntervals(20,30,30,'Kör!','Vila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"40 min i 6/km",
+       timer:withWarmCool([{label:'Kör',phase:'work',secs:2400,desc:'40 min i 6/km'}])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"55 min",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"4x2 min / 30 sek vila, 3 min vila, 8x1 min / 30 sek vila",
+       timer:withWarmCool([
+         ...buildIntervals(4,120,30,'Kör!','Vila'),
+         {label:'Vila',phase:'rest',secs:180,desc:'3 min vila'},
+         ...buildIntervals(8,60,30,'Kör!','Vila')
+       ],180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"35 min i 6/km",
+       timer:withWarmCool([{label:'Kör',phase:'work',secs:2100,desc:'35 min i 6/km'}])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"60 min",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"4 min, 3:30, 3, 2:30, 2, 1:30, 1 min, 30 sek / vila",
+       timer:withWarmCool([
+         {label:'Kör',phase:'work',secs:240,desc:'4 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek'},
+         {label:'Kör',phase:'work',secs:210,desc:'3:30 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek'},
+         {label:'Kör',phase:'work',secs:180,desc:'3 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek'},
+         {label:'Kör',phase:'work',secs:150,desc:'2:30 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek'},
+         {label:'Kör',phase:'work',secs:120,desc:'2 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek'},
+         {label:'Kör',phase:'work',secs:90,desc:'1:30 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek'},
+         {label:'Kör',phase:'work',secs:60,desc:'1 min'},{label:'Vila',phase:'rest',secs:30,desc:'30 sek'},
+       ],180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"10 min i 5:30/km",
+       timer:withWarmCool([{label:'Kör',phase:'work',secs:600,desc:'10 min i 5:30/km'}])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"30 min i 7/km + 10 min i 5:30 + 30 min i 7/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x4 min / 4 min joggvila",
+       timer:withWarmCool(buildIntervals(5,240,240,'Kör!','Joggvila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"20 min i 5:50/km",
+       timer:withWarmCool([{label:'Kör',phase:'work',secs:1200,desc:'20 min i 5:50/km'}])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"20 min i 7/km + 20 min i 5:30 + 30 min i 7/km",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"5x90 sek / 45 sek vila, 3 min vila — totalt 2 ggr",
+       timer:withWarmCool([
+         ...buildIntervals(5,90,45,'Kör!','Vila'),
+         {label:'Vila',phase:'rest',secs:180,desc:'3 min vila'},
+         ...buildIntervals(5,90,45,'Kör!','Vila'),
+       ],180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"20 min i 6/km",
+       timer:withWarmCool([{label:'Kör',phase:'work',secs:1200,desc:'20 min i 6/km'}])},
+      {t:"Långpass",tip:"Så att du kan prata",d:"60 min",timer:null}
+    ]},
+    {s:[
+      {t:"Kort intervall",tip:"Vila, stå eller gå",d:"8x1 min / 1 min joggvila",
+       timer:withWarmCool(buildIntervals(8,60,60,'Kör!','Joggvila'),180,180)},
+      {t:"Lång intervall",tip:"Jämn fart i varje moment",d:"3 km lugnt",
+       timer:withWarmCool([{label:'Kör',phase:'work',secs:1080,desc:'3 km lugnt tempo'}])},
+      {t:"Långpass",tip:"Dags att köra!",d:"🏁 Spring 10 km!",timer:null}
+    ]}
   ]}
 };
 
+// ── APP STATE ─────────────────────────────────────────────────────────────────
 const ACHIEVEMENTS = [
-  {id:"first", icon:"👟", label:"Första passet", check:d=>d.total>=1},
-  {id:"week1", icon:"📅", label:"Vecka 1 klar", check:d=>d.weekDone[0]},
-  {id:"halfway", icon:"⚡", label:"Halvvägs (15 pass)", check:d=>d.total>=15},
-  {id:"week5", icon:"🔥", label:"Vecka 5 klar", check:d=>d.weekDone[4]},
-  {id:"allweeks", icon:"🏆", label:"10 veckor klara", check:d=>d.weekDone.filter(Boolean).length===10},
-  {id:"done", icon:"🥇", label:"10km-löpare!", check:d=>d.total>=30}
+  {id:"first",icon:"👟",label:"Första passet",check:d=>d.total>=1},
+  {id:"week1",icon:"📅",label:"Vecka 1 klar",check:d=>d.weekDone[0]},
+  {id:"halfway",icon:"⚡",label:"Halvvägs (15 pass)",check:d=>d.total>=15},
+  {id:"week5",icon:"🔥",label:"Vecka 5 klar",check:d=>d.weekDone[4]},
+  {id:"allweeks",icon:"🏆",label:"10 veckor klara",check:d=>d.weekDone.filter(Boolean).length===10},
+  {id:"done",icon:"🥇",label:"10km-löpare!",check:d=>d.total>=30}
 ];
 
-let level = 'n3';
-let currentWeek = 0;
-let state = {};
-try { const s = localStorage.getItem('10km_v3'); if (s) state = JSON.parse(s); } catch(e) {}
-function save() { try { localStorage.setItem('10km_v3', JSON.stringify(state)); } catch(e) {} }
-function key(l,w,s) { return `${l}_w${w}_s${s}`; }
-
-function getDerived() {
-  let total=0, streak=0, weekDone=[];
-  for (let w=0; w<10; w++) {
-    let wd = true;
-    for (let s=0; s<3; s++) { if (state[key(level,w,s)]) total++; else wd=false; }
-    weekDone.push(wd);
-    if (wd) streak++; else streak=0;
+let level='n3', currentWeek=0, appState={};
+try{const s=localStorage.getItem('10km_v3');if(s)appState=JSON.parse(s);}catch(e){}
+function save(){try{localStorage.setItem('10km_v3',JSON.stringify(appState));}catch(e){}}
+function key(l,w,s){return`${l}_w${w}_s${s}`;}
+function getDerived(){
+  let total=0,streak=0,weekDone=[];
+  for(let w=0;w<10;w++){
+    let wd=true;
+    for(let s=0;s<3;s++){if(appState[key(level,w,s)])total++;else wd=false;}
+    weekDone.push(wd);if(wd)streak++;else streak=0;
   }
-  return { total, streak, weekDone };
+  return{total,streak,weekDone};
 }
 
-function setLevel(l) {
-  level = l;
-  document.getElementById('btn-n3').classList.toggle('active', l==='n3');
-  document.getElementById('btn-n2').classList.toggle('active', l==='n2');
+// ── RENDER ────────────────────────────────────────────────────────────────────
+function setLevel(l){
+  level=l;
+  document.getElementById('btn-n3').classList.toggle('active',l==='n3');
+  document.getElementById('btn-n2').classList.toggle('active',l==='n2');
   render();
 }
 
-function render() {
-  const dd = getDerived();
-  const pct = Math.round(dd.total / 30 * 100);
-  document.getElementById('prog-label').textContent = `${dd.total} / 30 pass klara`;
-  document.getElementById('prog-pct').textContent = `${pct}%`;
-  document.getElementById('prog-fill').style.width = pct + '%';
-  document.getElementById('xp-badge').textContent = `${dd.total * 50} XP`;
-  document.getElementById('streak-badge').textContent = `${dd.streak} veckor streak`;
+function render(){
+  const dd=getDerived();
+  const pct=Math.round(dd.total/30*100);
+  document.getElementById('prog-label').textContent=`${dd.total} / 30 pass klara`;
+  document.getElementById('prog-pct').textContent=`${pct}%`;
+  document.getElementById('prog-fill').style.width=pct+'%';
+  document.getElementById('xp-badge').textContent=`${dd.total*50} XP`;
+  document.getElementById('streak-badge').textContent=`${dd.streak} veckor streak`;
 
-  // Week tabs
-  const tabsEl = document.getElementById('week-tabs');
-  tabsEl.innerHTML = '';
-  for (let w=0; w<10; w++) {
-    const btn = document.createElement('button');
-    btn.className = 'week-tab' + (w===currentWeek?' active':'') + (dd.weekDone[w]?' done':'');
-    btn.innerHTML = `<span class="wnum">V${w+1}</span><span class="wcheck">${dd.weekDone[w]?'✓':''}</span>`;
-    btn.onclick = (()=>{ const ww=w; return ()=>{ currentWeek=ww; render(); }; })();
+  const tabsEl=document.getElementById('week-tabs');
+  tabsEl.innerHTML='';
+  for(let w=0;w<10;w++){
+    const btn=document.createElement('button');
+    btn.className='week-tab'+(w===currentWeek?' active':'')+(dd.weekDone[w]?' done':'');
+    btn.innerHTML=`<span class="wnum">V${w+1}</span><span class="wcheck">${dd.weekDone[w]?'✓':''}</span>`;
+    btn.onclick=(()=>{const ww=w;return()=>{currentWeek=ww;render();};})();
     tabsEl.appendChild(btn);
   }
 
-  // Sessions
-  const listEl = document.getElementById('sessions');
-  listEl.innerHTML = '';
-  DATA[level].weeks[currentWeek].s.forEach((s,i) => {
-    const k = key(level, currentWeek, i);
-    const done = !!state[k];
-    const card = document.createElement('div');
-    card.className = 'session-card' + (done?' completed':'');
-    card.innerHTML = `
+  const listEl=document.getElementById('sessions');
+  listEl.innerHTML='';
+  DATA[level].weeks[currentWeek].s.forEach((s,i)=>{
+    const k=key(level,currentWeek,i);
+    const done=!!appState[k];
+    const card=document.createElement('div');
+    card.className='session-card'+(done?' completed':'');
+    const timerBtn=s.timer
+      ?`<button class="start-btn" id="sbtn-${i}">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>Starta timer
+        </button>`:'';
+    card.innerHTML=`
       <div class="session-row">
         <div class="checkbox ${done?'checked':''}"><span class="check-icon">✓</span></div>
         <div class="session-body">
           <div class="session-type">${s.t}</div>
           <div class="session-desc">${s.d}</div>
           <div class="session-tip">${s.tip}</div>
-          ${done ? '<span class="xp-tag">+50 XP</span>' : ''}
+          ${done?'<span class="xp-tag">+50 XP</span>':''}
+          ${timerBtn}
         </div>
       </div>`;
-    card.onclick = (ev) => toggle(k, ev);
+    card.querySelector('.checkbox').addEventListener('click',ev=>{
+      ev.stopPropagation();
+      const wasDone=!!appState[k];
+      appState[k]=!wasDone;
+      save();
+      if(!wasDone)spawnConfetti(ev.clientX,ev.clientY);
+      render();
+    });
+    if(s.timer){
+      card.querySelector(`#sbtn-${i}`).addEventListener('click',ev=>{
+        ev.stopPropagation();
+        openTimer(s,currentWeek,i);
+      });
+    }
     listEl.appendChild(card);
   });
 
-  // Achievements
-  const achEl = document.getElementById('ach-grid');
-  achEl.innerHTML = '';
-  ACHIEVEMENTS.forEach(a => {
-    const unlocked = a.check(dd);
-    const el = document.createElement('div');
-    el.className = 'ach' + (unlocked?' unlocked':'');
-    el.innerHTML = `<span class="ach-icon">${unlocked ? a.icon : '○'}</span>${a.label}`;
+  const achEl=document.getElementById('ach-grid');
+  achEl.innerHTML='';
+  ACHIEVEMENTS.forEach(a=>{
+    const unlocked=a.check(dd);
+    const el=document.createElement('div');
+    el.className='ach'+(unlocked?' unlocked':'');
+    el.innerHTML=`<span class="ach-icon">${unlocked?a.icon:'○'}</span>${a.label}`;
     achEl.appendChild(el);
   });
 }
 
-function toggle(k, ev) {
-  const wasDone = !!state[k];
-  state[k] = !wasDone;
-  save();
-  if (!wasDone) spawnConfetti(ev.clientX, ev.clientY);
-  render();
-}
-
-function spawnConfetti(x, y) {
-  ['🎉','⭐','🏃','💚','🔥','✨'].forEach((e,i) => {
-    const el = document.createElement('div');
-    el.className = 'confetti';
-    el.textContent = e;
-    el.style.left = (x + (Math.random()-.5)*100) + 'px';
-    el.style.top = y + 'px';
-    el.style.animationDelay = (i * 0.07) + 's';
+function spawnConfetti(x,y){
+  ['🎉','⭐','🏃','💚','🔥','✨'].forEach((e,i)=>{
+    const el=document.createElement('div');
+    el.className='confetti';el.textContent=e;
+    el.style.left=(x+(Math.random()-.5)*100)+'px';
+    el.style.top=y+'px';
+    el.style.animationDelay=(i*.07)+'s';
     document.body.appendChild(el);
-    setTimeout(() => el.remove(), 1500);
+    setTimeout(()=>el.remove(),1500);
   });
 }
+
+// ── TIMER ─────────────────────────────────────────────────────────────────────
+let timerSteps=[],timerIdx=0,timerSecsLeft=0,timerTotalSecs=0;
+let timerRunning=false,timerInterval=null,wakeLock=null;
+
+const PHASE_LABELS={work:'Kör nu!',rest:'Vila',warmup:'Uppvärmning',cooldown:'Nedvarvning'};
+
+function openTimer(sess){
+  timerSteps=sess.timer;
+  timerIdx=0;timerRunning=false;
+  clearInterval(timerInterval);
+  document.getElementById('modal-pass-label').textContent=sess.t;
+  document.getElementById('modal-overlay').classList.add('open');
+  // Show countdown first, then load step
+  runCountdown(()=>loadStep(0));
+  requestWakeLock();
+}
+
+function closeTimer(){
+  clearInterval(timerInterval);
+  timerRunning=false;
+  document.getElementById('modal-overlay').classList.remove('open');
+  hideCountdown();
+  releaseWakeLock();
+}
+
+// ── COUNTDOWN ─────────────────────────────────────────────────────────────────
+function runCountdown(cb){
+  const overlay=document.getElementById('countdown-overlay');
+  const numEl=document.getElementById('countdown-num');
+  overlay.classList.add('visible');
+  let n=3;
+  numEl.className='countdown-num';
+  numEl.textContent=n;
+  playBeep('tick');
+
+  const tick=setInterval(()=>{
+    n--;
+    // Force re-animation
+    numEl.className='';
+    void numEl.offsetWidth;
+    numEl.className='countdown-num';
+    if(n>0){
+      numEl.textContent=n;
+      playBeep('tick');
+    } else if(n===0){
+      numEl.className='countdown-go';
+      numEl.textContent='Gååå!';
+      playBeep('end');
+    } else {
+      clearInterval(tick);
+      overlay.classList.remove('visible');
+      cb();
+    }
+  },900);
+}
+
+function hideCountdown(){
+  document.getElementById('countdown-overlay').classList.remove('visible');
+}
+
+// ── STEP LOGIC ────────────────────────────────────────────────────────────────
+function loadStep(idx){
+  if(idx>=timerSteps.length){
+    setTimerUI('Klart! 🎉',0,'done-phase','Passet är klart — bra jobbat!','',1,1);
+    document.getElementById('ctrl-main').textContent='Stäng';
+    document.getElementById('ctrl-main').onclick=closeTimer;
+    document.getElementById('ctrl-pause').style.display='none';
+    document.getElementById('ctrl-skip').style.display='none';
+    playBeep('done');
+    return;
+  }
+  const step=timerSteps[idx];
+  timerSecsLeft=step.secs;
+  timerTotalSecs=step.secs;
+  document.getElementById('ctrl-main').textContent='Nästa';
+  document.getElementById('ctrl-main').onclick=timerNext;
+  document.getElementById('ctrl-pause').style.display='';
+  document.getElementById('ctrl-skip').style.display='';
+  updateTimerUI();
+  startTimer();
+}
+
+function startTimer(){
+  timerRunning=true;
+  document.getElementById('ctrl-pause').textContent='Pausa';
+  clearInterval(timerInterval);
+  timerInterval=setInterval(()=>{
+    timerSecsLeft--;
+    if(timerSecsLeft<=0){
+      timerSecsLeft=0;updateTimerUI();
+      clearInterval(timerInterval);timerRunning=false;
+      playBeep('end');
+      setTimeout(()=>{timerIdx++;loadStep(timerIdx);},800);
+    } else {
+      if(timerSecsLeft<=3)playBeep('tick');
+      updateTimerUI();
+    }
+  },1000);
+}
+
+function togglePause(){
+  if(timerRunning){
+    clearInterval(timerInterval);timerRunning=false;
+    document.getElementById('ctrl-pause').textContent='Fortsätt';
+  } else {startTimer();}
+}
+
+function timerNext(){clearInterval(timerInterval);timerRunning=false;timerIdx++;loadStep(timerIdx);}
+function timerSkip(){timerNext();}
+
+function updateTimerUI(){
+  if(timerIdx>=timerSteps.length)return;
+  const step=timerSteps[timerIdx];
+  const next=timerIdx+1<timerSteps.length?timerSteps[timerIdx+1]:null;
+  const progressText=next?`Nästa: ${next.label} (${fmtTime(next.secs)})`:'Sista momentet';
+  setTimerUI(PHASE_LABELS[step.phase]||step.label,timerSecsLeft,step.phase,step.desc,progressText,timerSecsLeft,timerTotalSecs);
+}
+
+function setTimerUI(phase,secs,phaseClass,desc,progress,fillVal,fillMax){
+  const phaseEl=document.getElementById('timer-phase');
+  phaseEl.textContent=phase;phaseEl.className='timer-phase '+phaseClass;
+  document.getElementById('timer-clock').textContent=fmtTime(secs);
+  document.getElementById('timer-desc').textContent=desc;
+  document.getElementById('timer-progress-text').textContent=progress;
+  const fill=document.getElementById('timer-bar-fill');
+  fill.className='timer-bar-fill '+phaseClass;
+  fill.style.width=(fillMax>0?fillVal/fillMax*100:100)+'%';
+}
+
+function fmtTime(s){return`${Math.floor(s/60)}:${String(s%60).padStart(2,'0')}`;}
+
+// ── AUDIO ─────────────────────────────────────────────────────────────────────
+let audioCtx=null;
+function getAudioCtx(){if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();return audioCtx;}
+function playBeep(type){
+  try{
+    const ctx=getAudioCtx();
+    const cfgs={
+      tick:[{f:880,d:.06,v:.3}],
+      end:[{f:660,d:.12,v:.5},{f:880,d:.18,v:.6,t:.15}],
+      done:[{f:523,d:.15,v:.5},{f:659,d:.15,v:.5,t:.18},{f:784,d:.3,v:.6,t:.36}]
+    };
+    (cfgs[type]||[]).forEach(({f,d,v,t=0})=>{
+      const osc=ctx.createOscillator(),gain=ctx.createGain();
+      osc.connect(gain);gain.connect(ctx.destination);
+      osc.frequency.value=f;osc.type='sine';
+      const at=ctx.currentTime+t;
+      gain.gain.setValueAtTime(v,at);
+      gain.gain.exponentialRampToValueAtTime(.001,at+d);
+      osc.start(at);osc.stop(at+d+.01);
+    });
+  }catch(e){}
+}
+
+// ── WAKE LOCK ─────────────────────────────────────────────────────────────────
+async function requestWakeLock(){
+  try{if('wakeLock'in navigator)wakeLock=await navigator.wakeLock.request('screen');}catch(e){}
+}
+function releaseWakeLock(){try{if(wakeLock){wakeLock.release();wakeLock=null;}}catch(e){}}
+document.addEventListener('visibilitychange',()=>{
+  if(document.visibilityState==='visible'&&document.getElementById('modal-overlay').classList.contains('open'))requestWakeLock();
+});
+document.getElementById('modal-overlay').addEventListener('click',e=>{if(e.target===e.currentTarget)closeTimer();});
 
 render();
 </script>
